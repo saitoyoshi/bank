@@ -5,16 +5,16 @@ require_once __DIR__ . '/Account.php';
 class Bank {
     private array $accounts = [];
 
-    public function createAccount($name, $number, $balance = 0) {
+    public function createAccount(string $name, string $number, int $balance = 0) {
         if (!$this->isOnlyNumber($number)) {
             throw new Exception('口座番号はユニークでなければなりません');
         }
         $this->accounts[] = new Account($name, $number, $balance);
     }
-    public function getAccounts() {
+    public function getAccounts(): array {
         return $this->accounts;
     }
-    private function isOnlyNumber($number): bool {
+    private function isOnlyNumber(string $number): bool {
         foreach ($this->accounts as $account) {
             if ($account->getNumber() === $number) {
                 return false;
@@ -22,7 +22,7 @@ class Bank {
         }
         return true;
     }
-    public function findAccount($number):Account {
+    public function findAccount(string $number):Account {
         foreach ($this->accounts as $account) {
             if ($account->getNumber() === $number) {
                 return $account;
