@@ -21,6 +21,9 @@ class Account {
     public function getNumber(): string {
         return $this->number;
     }
+    public function getName(): string {
+        return $this->name;
+    }
     public function deposit($money): void {
         $this->balance += $money;
     }
