@@ -24,10 +24,10 @@ class Account {
     public function getName(): string {
         return $this->name;
     }
-    public function deposit($money): void {
+    public function deposit(int $money): void {
         $this->balance += $money;
     }
-    public function withdraw($money): void {
+    public function withdraw(int $money): void {
         if (!$this->isWithDrawable($money)) {
             throw new Exception('残高よりも多くのお金を下ろそうとしています');
         }
