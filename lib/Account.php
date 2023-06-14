@@ -25,9 +25,15 @@ class Account {
         return $this->name;
     }
     public function deposit(int $money): void {
+        if ($money < 0) {
+            throw new Exception('預金額は0以上でなければなりません');
+        }
         $this->balance += $money;
     }
     public function withdraw(int $money): void {
+        if ($money < 0) {
+            throw new Exception('引き出し額は0以上でなければなりません');
+        }
         if (!$this->isWithDrawable($money)) {
             throw new Exception('残高よりも多くのお金を下ろそうとしています');
         }
