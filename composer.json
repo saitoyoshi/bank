@@ -1,5 +1,8 @@
 {
     "require-dev": {
         "phpunit/phpunit": "^9.6"
+    },
+    "scripts": {
+        "phpunit": "./vendor/bin/phpunit"
     }
 }
