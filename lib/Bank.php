@@ -28,6 +28,7 @@ class Bank {
                 return $account;
             }
         }
+        throw new Exception('口座が見つかりませんでした');
     }
     public function transfer(string $srcAccountNumber, string $dstAccountNumber, $money): void {
         $srcAccount = $this->findAccount($srcAccountNumber);

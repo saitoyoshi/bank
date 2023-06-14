@@ -19,6 +19,14 @@ class BankTest extends TestCase {
         $target = $bank->findAccount('231-456-789');
         $this->assertSame('Suzuki Ichiro', $target->getName());
     }
+    public function testFindAccountThrowException() {
+        $this->expectException('Exception');
+        $bank = new Bank();
+        $bank->createAccount('Yamada Taro', '123-456-789');
+        $bank->createAccount('Suzuki Ichiro','231-456-789');
+        $bank->createAccount('Tanaka Hanako', '321-456-789');
+        $target = $bank->findAccount('777-777-777');
+    }
     public function testTransfer() {
         $bank = new Bank();
         $bank->createAccount('Yamada Taro', '123-456-789', 1000);
