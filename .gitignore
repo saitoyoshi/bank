@@ -1,2 +1,3 @@
 memo
 vendor
+.phpunit.result.cache
