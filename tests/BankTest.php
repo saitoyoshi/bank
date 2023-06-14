@@ -26,7 +26,7 @@ class BankTest extends TestCase {
         $bank->createAccount('Tanaka Hanako', '321-456-789', 1500);
         $srcAccount = $bank->findAccount('123-456-789');
         $dstAccount = $bank->findAccount('321-456-789');
-        $bank->transfer($srcAccount, $dstAccount, 500);
+        $bank->transfer('123-456-789', '321-456-789', 500);
         $this->assertSame(500, $srcAccount->getBalance());
         $this->assertSame(2000, $dstAccount->getBalance());
     }
@@ -38,7 +38,7 @@ class BankTest extends TestCase {
         $bank->createAccount('Tanaka Hanako', '321-456-789', 1500);
         $srcAccount = $bank->findAccount('123-456-789');
         $dstAccount = $bank->findAccount('321-456-789');
-        $bank->transfer($srcAccount, $dstAccount, 1500);
+        $bank->transfer('123-456-789', '321-456-789', 1500);
         $this->assertSame(500, $srcAccount->getBalance());
         $this->assertSame(2000, $dstAccount->getBalance());
     }

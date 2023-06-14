@@ -29,7 +29,9 @@ class Bank {
             }
         }
     }
-    public function transfer($srcAccount, $dstAccount, $money): void {
+    public function transfer(string $srcAccountNumber, string $dstAccountNumber, $money): void {
+        $srcAccount = $this->findAccount($srcAccountNumber);
+        $dstAccount = $this->findAccount($dstAccountNumber);
         $srcAccount->withdraw($money);
         $dstAccount->deposit($money);
     }
